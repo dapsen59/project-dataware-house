@@ -7,8 +7,8 @@ config.read('dwh.cfg')
 
 # DROP TABLES
 
-staging_events_table_drop = ""
-staging_songs_table_drop = "songplays"
+staging_events_table_drop = "staging_events"
+staging_songs_table_drstaging_songsop = "songplays"
 songplay_table_drop = ""
 user_table_drop = "users"
 song_table_drop = "songs"
@@ -48,19 +48,19 @@ staging_songs_copy = ("""
 
 # FINAL TABLES
 
-songplay_table_insert = ("""
+songplay_table_insert = ("""INSERT INTO songplays (songplay_id, start_time, user_id , level, song_id, artist_id, session_id, location,  user_agent) VALUES( %, %, %, %, %, %, %, %, %);
 """)
 
-user_table_insert = ("""
+user_table_insert = ("""INSERT INTO users (user_id, first_name, last_name, gender, level)VALUES( %, %, %, %, %);
 """)
 
-song_table_insert = ("""
+song_table_insert = ("""INSERT INTO songs (song_id, title, artist_id, year, duration) VALUES( %, %, %, %, %);
 """)
 
-artist_table_insert = ("""
+artist_table_insert = ("""INSERT INTO artists (artist_id, name, location, lattitude, longitude) VALUES( %, %, %, %, %);
 """)
 
-time_table_insert = ("""
+time_table_insert = ("""INSERT INTO time (start_time, hour, day, week, month, year, weekday) VALUES( %, %, %, %, %, %, %);
 """)
 
 # QUERY LISTS
